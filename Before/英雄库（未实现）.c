@@ -1,18 +1,18 @@
 #include<stdio.h>
-#include "GetLevel.c"//GetLevel.cÊÇ¾­ÑéĞèÇó±í
+#include "GetLevel.c"//GetLevel.cæ˜¯ç»éªŒéœ€æ±‚è¡¨
 
 
-//¶¨ÒåÒ»¸ö½á¹¹Ìå
+//å®šä¹‰ä¸€ä¸ªç»“æ„ä½“
 typedef struct Hero{
     char Name[20];
 	int Hp;
 	int Atk;
 }hero;
 
-//¸ù¾İÊäÈë±àºÅ£¬·µ»Ø¸Ã±àºÅ¶ÔÓ¦µÄÓ¢ĞÛÃû³Æ
+//æ ¹æ®è¾“å…¥ç¼–å·ï¼Œè¿”å›è¯¥ç¼–å·å¯¹åº”çš„è‹±é›„åç§°
 char GetName(int NameNumber){
 	char Name;
-	//ÊäÈë´íÎóµÄ±àºÅ£¬ÔòÌáÊ¾ÖØĞÂÊäÈë¡£
+	//è¾“å…¥é”™è¯¯çš„ç¼–å·ï¼Œåˆ™æç¤ºé‡æ–°è¾“å…¥ã€‚
 	if (NameNumber <=0 || NameNumber >=3){
 		printf("Wrong NameNumber,please reinput (1-2):\n");
 		scanf("%d",&NameNumber);
@@ -30,14 +30,15 @@ char GetName(int NameNumber){
 }
 
 
-void main(){
+int main(){
 	char Hero,Name;
 	int NameNumber,Exp = 0,Hp,Atk,Level;
-	printf("Please input ±àºÅºÍ¾­Ñé:\n");
+	printf("Please input ç¼–å·å’Œç»éªŒ:\n");
     scanf("%d,%d",&NameNumber,&Exp);
 	Name = GetName(NameNumber);
 	Level = GetLevel(Exp);
 	hero Slark = {"Slark",100+(10*Level),13+(2*Level)};
 	//hero Norton = {"Norton",150+(15*Level),8+(1*Level)};
 	printf("Hero Name:%s\nLevel:%d\nHp:%d\nAttack:%d\n",Name,Level,Slark.Hp,Slark.Atk);
+	return 0;
 }
