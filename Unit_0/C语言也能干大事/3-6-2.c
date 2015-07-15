@@ -1,11 +1,11 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 
 void pirntEach(int *nums,int len)
 {
 	int i;
 	for(i=0;i<len;i++)
 	{
-		printf("µÚ%d¸öÔªËØÊÇ%d\n",i+1,nums[i]);
+		printf("ç¬¬%dä¸ªå…ƒç´ æ˜¯%d\n",i+1,nums[i]);
 	}
 }
 
@@ -15,4 +15,3 @@ int main(int argc, char *argv[])
 	printEach(nums,sizeof(nums)/sizeof(int));
 	return 0;
 }
-

@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <string.h>
 
 void parseFileName( char *filename,
@@ -9,9 +9,9 @@ void parseFileName( char *filename,
 	{
 		ptr++;
 	}
-	char *endPtr=ptr;//½áÎ²µÄÖ¸Õë
-	//ptrÒÆ¶¯µ½ÁË×Ö·û´®µÄ½áÎ²
-	//ÔÙ°ÑptrÒÆ¶¯µ½¡°.¡±µÄÎ»ÖÃ
+	char *endPtr=ptr;//ç»“å°¾çš„æŒ‡é’ˆ
+	//ptrç§»åŠ¨åˆ°äº†å­—ç¬¦ä¸²çš„ç»“å°¾
+	//å†æŠŠptrç§»åŠ¨åˆ°â€œ.â€çš„ä½ç½®
 	while(*ptr!='.')
 	{
 		ptr--;
@@ -22,10 +22,10 @@ void parseFileName( char *filename,
 
 int main(int argc, char *argv[])
 {
-	char str[]="[TK-300]ÃÀ.Å®.avi";
+	char str[]="[TK-300]ç¾.å¥³.avi";
 	char name[20]={0};
 	char ext[20]={0};
 	parseFileName(str,name,ext);
-	printf("ÎÄ¼şÃû:%s\nºó×º:%s",name,ext);
+	printf("æ–‡ä»¶å:%s\nåç¼€:%s",name,ext);
 	return 0;
 }
