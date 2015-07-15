@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main() 
 { 
-    /* è¾“å…¥éœ€è¦è®¡ç®—çš„æ—¥æœŸ */
+    /* ¶¨ÒåĞèÒª¼ÆËãµÄÈÕÆÚ */
     int year = 2008;
     int month = 8;
     int day = 8;
@@ -21,11 +21,11 @@ int main()
 	    case 10: n=31+28+31+30+31+30+31+31+30;break;
 	    case 11: n=31+28+31+30+31+30+31+31+30+31;break;
 	    case 12: n=31+28+31+30+31+30+31+31+30+31+30;break;
-	    default : printf("æœˆä»½è¾“å…¥é”™è¯¯!");break;
+	    default : printf("ÔÂ·İÊäÈë´íÎó!");break;
 	}	
 	n+=day;
 	if ((year%4==0 && year%100 != 0)||year%400 == 0) n++;
-	printf("%då¹´%dæœˆ%dæ—¥æ˜¯è¯¥å¹´çš„ç¬¬%då¤©\n",year,month,day,n);
+	printf("%dÄê%dÔÂ%dÈÕÊÇ¸ÃÄêµÄµÚ%dÌì\n",year,month,day,n);
 
 
 
