@@ -37,8 +37,7 @@ struct sx *Input(){
 	head=NULL;
 	p1=p2=(struct sx *)malloc(sizeof(struct sx));
 	scanf("%d",p1->a);
-	while (p1->a !=0)
-	{
+	while (p1->a !=0){
 		n++;
 		if (n==1) head = p1;
 		else p2->next = p1;
