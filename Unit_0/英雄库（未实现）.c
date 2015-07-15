@@ -1,4 +1,4 @@
-﻿#include<stdio.h>
+#include<stdio.h>
 #include "GetLevel.c"//GetLevel.c是经验需求表
 
 

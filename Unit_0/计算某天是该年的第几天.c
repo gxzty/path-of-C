@@ -1,4 +1,4 @@
-﻿#include <stdio.h>
+#include <stdio.h>
 int main() 
 { 
     /* 定义需要计算的日期 */

@@ -6,10 +6,10 @@ int main()
     {
 		for(n=2; n<m; n++)
         {
-            if(m%n==0)       //什么条件下跳出当前循环
-           break;          //这里应该退出当前循环了
+            if(m%n==0)       //浠�涔堟潯浠朵笅璺冲嚭褰撳墠寰幆
+           break;          //杩欓噷搴旇閫�鍑哄綋鍓嶅惊鐜簡
 		}	
-        if(m == n)   //n循环结束后，如果m=n的话就输出m
+        if(m == n)   //n寰幆缁撴潫鍚庯紝濡傛灉m=n鐨勮瘽灏辫緭鍑簃
     printf("%d  ", m);
 	}
 	return 0;    
