@@ -25,8 +25,7 @@ No
 #include <stdio.h>
 #include <malloc.h>
 int count=0;
-struct sx
-{
+struct sx{
 	int a;
 	struct sx * next;
 };
@@ -62,8 +61,7 @@ int *shuixian(struct sx *p){
 	}
 }
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
 	struct sx *q;
 	q = Input();
 	shuixian(q);
