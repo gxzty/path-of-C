@@ -2,10 +2,8 @@
 int main()
 {
     int m, n;
-    for(m=2; m<=50; m++)
-    {
-		for(n=2; n<m; n++)
-        {
+    for(m=2; m<=50; m++){
+		for(n=2; n<m; n++){
             if(m%n==0)       //什么条件下跳出当前循环
            break;          //这里应该退出当前循环了
 		}	
