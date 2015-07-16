@@ -24,7 +24,7 @@ No
 
 #include <stdio.h>
 #include <malloc.h>
-
+int count=0;
 struct sx
 {
 	int a;
@@ -33,29 +33,33 @@ struct sx
 
 struct sx *Input(){
     struct sx *head,*p1,*p2;
-    int n=0;
 	head=NULL;
 	p1=p2=(struct sx *)malloc(sizeof(struct sx));
-	scanf("%d",p1->a);
+	scanf("%d",&p1->a);
 	while (p1->a !=0){
-		n++;
-		if (n==1) head = p1;
+		count++;
+		if (count==1) head = p1;
 		else p2->next = p1;
 		p2 = p1;
 		p1 = (struct sx *)malloc(sizeof(struct sx));
-		scanf("%d",p1->a);
+		scanf("%d",&p1->a);
 	}
+	printf("\n");
+	p1->next=NULL;
     return (head);
 }
 
 int *shuixian(struct sx *p){
     int a1,a2,a3;
-	a1=p->a/100;
-	a2=(p->a%100)/10;
-	a3=((p->a%100)%10);
-	printf("%d,%d,%d\n",a1*a1*a1,a2*a2*a2,a3*a3*a3);
-	if (a1*a1*a1+a2*a2*a2+a3*a3*a3==p->a) printf("Yes\n");
-	else printf("No\n");
+	int i=1;
+	for (;i<=count ;i++ ){
+			a1=p->a/100;
+	        a2=(p->a%100)/10;
+			a3=((p->a%100)%10);
+			if (a1*a1*a1+a2*a2*a2+a3*a3*a3==p->a) printf("Yes\n");
+			else printf("No\n");
+			p=p->next;
+	}
 }
 
 int main(int argc, char *argv[])
