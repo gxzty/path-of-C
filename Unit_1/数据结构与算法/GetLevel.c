@@ -7,7 +7,7 @@
 #define Lv7 33
 #define Lv8 42
 #define Lv9 52
-
+//或者每隔一个素数升一级
 int GetLevel(int Exp){
 	int Level;
 	if (Exp>=Lv1 && Exp<Lv2){

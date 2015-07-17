@@ -25,31 +25,36 @@
 52
 */
 #include <stdio.h>
+#include <malloc.h>
+#include <math.h>
+int count=0;
+int *sushu (int a[]){
+    int m, n,i=0,max;
+	m=a[count];
+//    for(m=a[i]; m<=50; ){
+//		for(n=2; n<max; n++){
+//            if(m%n==0)       //什么条件下跳出当前循环
+ //          break;          //这里应该退出当前循环了
+//		}	
+//        if(m == n)   //n循环结束后，如果m=n的话就输出m
+    printf("|%d\n  ", m);
+}
 
 int main()
 {
-	int M,i,N,j;
-	int a[][];//创建二维数组
-	scanf("%d",&M);
-	for (i=0;i<M ;i++ ){
-		scanf("%d",&N);
-		for (j=0;j<N;j++ ){
-			scanf("%d",&a[i][j]);
+	int i,j;
+	scanf("%d",&i);
+		while (i--&&scanf("%d",&j)){
+			int a[j];
+			a[j]=(int)malloc(j*sizeof(int));
+			while (j){
+				count++;
+				scanf("%d",&a[j-1]);
+				printf("%d\n",a[j-1]);
+				sushu(a);
+				j--;
+			}
 		}
-	}
-	for (i=0;i<M ;i++ ){
-		for (j=0;j<N ;j++ ){
-			printf("%d\n",a[i][j]);
-		}
-	}
-    int m, n;
-    for(m=2; m<=50; m++){
-		for(n=2; n<m; n++){
-            if(m%n==0)       //什么条件下跳出当前循环
-           break;          //这里应该退出当前循环了
-		}	
-        if(m == n)   //n循环结束后，如果m=n的话就输出m
-    printf("%d  ", m);
-	}
+		printf("over\n");
 	return 0;    
 }

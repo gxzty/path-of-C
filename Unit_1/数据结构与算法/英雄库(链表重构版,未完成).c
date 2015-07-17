@@ -1,26 +1,38 @@
 #include<stdio.h>
+#include <malloc.h>
 #include "GetLevel.c"//GetLevel.c是经验需求表
 
-
+int count;
 //定义一个结构体
 typedef struct Hero{
     char Name[20];
-    int exp;
-	struct hero * next;
+    int Exp,Hp,Atk;
+	struct hero *next;
 }hero;
 
-hero *CreatHero()
-{
-	int NameNumber;
-	return NameNumber;
+hero *CreatHero(){
+	hero *head,*p,*q;
+    head =NULL;
+	p=q=(hero *)malloc(sizeof(hero));
+	scanf("%c,%d",p->Name,p->Exp);
+	while (p->Name != 0){
+		count++;
+		if (count==1)  head=p;
+        else q->next = p; //为什么会warning: assignment from incompatible pointer type
+		q=p;
+		p=(hero *)malloc(sizeof(hero));
+		scanf("%c,%d",p->Name,p->Exp);
+	}
+	printf("\n");
+    p->next=NULL;
+    return (head);
 }
 
 
 
 //根据输入编号，返回该编号对应的英雄名称
 char GetName(int NameNumber){
-	
-    /*char Name;
+	char Name;
     //输入错误的编号，则提示重新输入。
     if (NameNumber <=0 || NameNumber >=3){
     printf("Wrong NameNumber,please reinput (1-2):\n");
@@ -28,12 +40,8 @@ char GetName(int NameNumber){
     GetName(NameNumber);
     }
     else{
-	switch (NameNumber){
-        case 1: Name = "Slark";break;
-        case 2: Name = "Norton";break;
-        }
+
     }
-	*/
     return Name;
 }
 
