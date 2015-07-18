@@ -21,7 +21,11 @@ Yes
 No
 */
 
-
+/*太麻烦了！！！我把题目想复杂了！！！
+要求不是一次性输入153 154 0，
+而是输入153，输出yes，再输入154，输出no，当输入0时，程序结束！！
+用while(scanf("%d",n),n)就可以了！！
+*/
 #include <stdio.h>
 #include <malloc.h>
 int count=0;

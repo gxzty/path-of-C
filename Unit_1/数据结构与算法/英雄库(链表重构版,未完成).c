@@ -7,7 +7,7 @@ int count;
 typedef struct Hero{
     char Name[20];
     int Exp,Hp,Atk;
-	struct hero *next;
+	struct Hero *next;//TMD问题出在这里！！！这里的hero忘记首字母大写了！！Hero才对！！
 }hero;
 
 hero *CreatHero(){
@@ -17,8 +17,9 @@ hero *CreatHero(){
 	scanf("%c,%d",p->Name,p->Exp);
 	while (p->Name != 0){
 		count++;
-		if (count==1)  head=p;
+		if (count==1) head=p;
         else q->next = p; //为什么会warning: assignment from incompatible pointer type
+								  //因为定义结构体的时候，写的是struct hero *next！！！Hero要大写！！
 		q=p;
 		p=(hero *)malloc(sizeof(hero));
 		scanf("%c,%d",p->Name,p->Exp);
