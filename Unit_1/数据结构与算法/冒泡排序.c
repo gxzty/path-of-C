@@ -1,5 +1,6 @@
 //冒泡排序
 #include <stdio.h>
+#include <stdio.h>
 
 int bubblesort(int a[], int n){
     int i,temp,sorted=-1;
@@ -17,6 +18,7 @@ int bubblesort(int a[], int n){
 		n--;//每次循环都不必再循环整遍，每次都会将最大元素后置，所以只要循环到上次循环末前一个位置就好
 	}
     n=j;//将总数目取出，重新赋给n
+    printf("%d\n\n",n);//显示这是个多少元素组成的数组
 	while (j != 0){
 		printf("%d|",a[n-j]);
 		j--;
@@ -26,9 +28,11 @@ int bubblesort(int a[], int n){
 
 int main(int argc, char *argv[])
 {
-	int a[10] = {9,10,6,8,7,5,4,3,2,1};
-    int n = 10,i=n;
-	bubblesort(a,10);
+	int random;
+	srand((unsigned)time(NULL));//创建时间种子
+	random=rand()%(100-1+1)+1;//创建1-100间的随机数
+	int a[random] ;//随即生成一个1-100元素数组
+	bubblesort(a,random);
 	putchar('\n');
 	return 0;
 }
