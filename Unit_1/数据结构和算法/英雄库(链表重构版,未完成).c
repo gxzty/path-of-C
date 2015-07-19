@@ -6,7 +6,7 @@ int count;
 //定义一个结构体
 typedef struct Hero{
     char Name[20];
-    int Exp,Hp,Atk;
+    int Exp,Level,Hp,Atk;
 	struct Hero *next;//TMD问题出在这里！！！这里的hero忘记首字母大写了！！Hero才对！！
 }hero;
 
@@ -50,12 +50,14 @@ char GetName(int NameNumber){
 int main(){
     char hero,Name;
     int NameNumber,Exp = 0,Hp,Atk,Level;
-    printf("Please input 编号和经验:\n");
-    scanf("%d,%d",&NameNumber,&Exp);
-    Name = GetName(NameNumber);
+    printf("Please input  Exp:\n");
+    scanf("%d",&Exp);
+//    Name = GetName(NameNumber);
     Level = GetLevel(Exp);
-    struct Hero Slark = {"Slark",100+(10*Level),13+(2*Level)};
-    //hero Norton = {"Norton",150+(15*Level),8+(1*Level)};
-    printf("Hero Name:%s\nLevel:%d\nHp:%d\nAttack:%d\n",Name,Level,Slark.Hp,Slark.Atk);
-    return 0;
+    struct Hero Slark = {"Slark",0,Level,100+(10*Level),13+(3*Level)};
+	struct Hero Norton = {"Norton",0,Level,150+(13*Level),10+(2*Level)};
+    printf("Hero Name:%s\nLevel:%d\nHp:%d\nAttack:%d\n\n",Slark.Name,Slark.Level,Slark.Hp,Slark.Atk);
+	printf("Hero Name:%s\nLevel:%d\nHp:%d\nAttack:%d\n\n",Norton.Name,Norton.Level,Norton.Hp,Norton.Atk);
+    
+	return 0;
 }

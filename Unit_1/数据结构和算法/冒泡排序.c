@@ -19,10 +19,7 @@ int bubblesort(int a[], int n){
 	}
     n=j;//将总数目取出，重新赋给n
     printf("%d\n\n",n);//显示这是个多少元素组成的数组
-	while (j != 0){
-		printf("%d|",a[n-j]);
-		j--;
-	}
+	while (~j) printf("%d|",a[n-j--]); //逐个打印排序好的数组
 }
 
 
@@ -32,7 +29,7 @@ int main(int argc, char *argv[])
 	srand((unsigned)time(NULL));//创建时间种子
 	random=rand()%(100-1+1)+1;//创建1-100间的随机数
 	int a[random] ;//随即生成一个1-100元素数组
-	bubblesort(a,random);
+	bubblesort(a,random);//冒泡排序
 	putchar('\n');
 	return 0;
 }
