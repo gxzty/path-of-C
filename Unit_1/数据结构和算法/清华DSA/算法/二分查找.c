@@ -1,5 +1,7 @@
 //二分查找
 #include <stdio.h>
+#define LENGTH 10
+#define INSERT 8
 
 //传入数组长度，数组和需要插入的数
 int binary_search(int len, int num[], int request) {
@@ -14,10 +16,10 @@ int binary_search(int len, int num[], int request) {
         }
     }
     if (request > num[len -1]) left++;
-    return left;
+    return left;//返回第几位
 }
 int main() {
-    int num[10] = {1, 3, 4, 5, 7, 8, 8, 9, 10, 13};
-    printf("%d\n", binary_search(10, num, 2));
+    int num[LENGTH] = {1, 3, 4, 5, 7, 8, 8, 9, 10, 13};
+    printf("%d\n", binary_search(LENGTH, num, INSERT));
     return 0;
 }
