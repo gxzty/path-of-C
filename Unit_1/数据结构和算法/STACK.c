@@ -1,7 +1,7 @@
 #include <malloc.h>
 #include "define.c"
 #define STACK_INIT_SIZE 100  //存储空间初始分配量
-#define STACK_INCREMENT 10   //存储空间分配增量
+#define STACKINCREMENT 10   //存储空间分配增量
 
 #define SElemType int
 
@@ -34,17 +34,29 @@ Status InitStack(SqStack S){
 Status GetTop(SqStack S,SElemType *e){
     //若栈不空，则用e返回S的栈顶元素，并返回OK；否则返回ERROR
     if (S.top == S.base) return FALSE;
-	e = (S.top - 1);
+	e = *(S.top - 1);
 	return OK;
 }//GetTop
 
 Status Push(SqStack S,SElemType e){
 	//插入元素e为新的栈顶元素
-}
+	if (S.top - S.base >= S.stacksize ){
+    S.base = (SElemType *)realloc(S.base , 
+		                (S.stacksize+STACKINCREMENT)*sizeof(SElemType));
+	if (!S.base) exit (OVERFLOW);
+	S.top = S.base + S.stacksize;
+	S.stacksize += STACKINCREMENT;
+	}
+	*S.top++ =e;
+	return OK;
+}//Push
 
-Status Pop (SqStack S,SElemType e){
+Status Pop (SqStack S,SElemType *e){
     //若栈不空，则删除S的栈顶元素，用e返回其值，并返回OK；否则返回ERROR
-}
+    if (S.top == S.base) return ERROR;
+	e =  --S.top;
+	return OK;
+}//Pop
 
 Status DestroyStack(SqStack *S){
     //销毁栈S,S不再存在
@@ -65,5 +77,12 @@ int StackLength(SqStack *S){
 
 Status StackTraverse(SqStack S,Status( * visit)());
     //从栈底到栈顶依次对栈中每个元素调用函数visit()，一旦visit()失败，则操作失败
-void main (){
+
+int main(int argc, char *argv[])
+{
+	SqStack S;
+	InitStack(S);
+	Push(S,1);
+	GetTop(S);
+	return 0;
 }
