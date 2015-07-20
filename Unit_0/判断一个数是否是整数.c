@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
 	}
 	int k=1;
 	for (;k<i ;k++ ){
-		if (a[k] == (float)((int)(a[k]))) printf("%d is zhengshu----YES\n",(int)a[k]);
-		else printf("%g is xiaoshu----NO\n",a[k]);
+		if (a[k] == (float)((int)(a[k]))) printf("%d is INT----YES\n",(int)a[k]);
+		else printf("%g is FLOAT----NO\n",a[k]);
 	}
 	return 0;
 }
