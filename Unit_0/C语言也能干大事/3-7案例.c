@@ -22,7 +22,7 @@ int endsWith(char *str,char *substr)
         substr++;
         substrlen++;
     }
-    if(substrlen>strlen)
+    if(strlen < substrlen)
     {
         return 0;
     }

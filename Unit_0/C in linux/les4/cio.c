@@ -11,7 +11,7 @@ int main()
   int a;
   //scanf("%d,&a");
   fscanf(stdin,"%d",&a);
-  if(a<0){
+  if(a < 0){
     fprintf(stderr,"the value must >0\n");
     return 1;
   }

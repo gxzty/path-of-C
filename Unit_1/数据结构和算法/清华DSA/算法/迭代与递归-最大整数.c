@@ -10,7 +10,7 @@ struct max twomax(int a[],int lo,int hi ){
 	int i,j=0,temp;
 	while (j++ < 2){	
 	    for (i=lo;i<hi ;i++ ){
-		    if (a[i] > a[i+1]){
+		    if (a[i+1] < a[i] ){
 			    temp = a[i+1]; a[i+1] = a[i]; a[i] = temp;
 		    }
 	    }
@@ -29,13 +29,13 @@ struct max twomax(int a[],int lo,int hi ){
 struct max twomax2(int a[],int lo,int hi ){
 	struct max x;
     int i;
-	x.x1 = a[lo] > a[lo+1] ? a[lo] : a[lo+1];
-	x.x2 = a[lo] > a[lo+1] ? a[lo+1] : a[lo];
-	printf("a[lo] = %d|x1 = %d|a[lo+1] = %d|x2 = %d\n",a[lo],x.x1,a[lo+1],x.x2);
+	x.x1 = a[lo+1] < a[lo]  ? a[lo+1] : a[lo] ;
+	x.x2 = a[lo+1] < a[lo] ? a[lo] : a[lo+1];
+//	printf("a[lo] = %d|x1 = %d|a[lo+1] = %d|x2 = %d\n",a[lo],x.x1,a[lo+1],x.x2);
 	i = lo+2;
 	while (i <= hi){		
-		if (a[i] > x.x2){
-			if ( a[i] > x.x1 ){
+		if (x.x2 < a[i] ){
+			if (  x.x1 < a[i]){
 				x.x2 = x.x1;
 				x.x1 = a[i];
 			}
@@ -55,14 +55,10 @@ int twomax3(int a,int lo,int hi ){
 int main(int argc, char *argv[])
 {
     int a[arraymax] = {0,33123,3,4,223,11,33,1,41,31} ;
-	printf("%d|||",a[0]);
 	struct max x = twomax(a,0,arraymax-1);
     printf("%d\n%d\n",x.x1,x.x2);
 	putchar('\n');
 	int i = 0;
-	while ( i < arraymax){
-	    printf("%d,",a[i++]);
-	}putchar('\n');
 	struct max x2 = twomax2(a,0,arraymax-1);
 	printf("%d\n%d\n",x2.x1,x2.x2);
 	return 0;

@@ -10,31 +10,31 @@
 //或者每隔一个素数升一级
 int GetLevel(int Exp){
 	int Level;
-	if (Exp>=Lv1 && Exp<Lv2){
+	if (Lv1 <= Exp && Exp<Lv2){
 		Level= 1;
 	}
-	else if (Exp>=Lv2 && Exp<Lv3){
+	else if (Lv2 <= Exp && Exp<Lv3){
 		Level= 2;
 	}
-    else if (Exp>=Lv3 && Exp<Lv4){
+    else if (Lv3 <= Exp&& Exp<Lv4){
 		Level= 3;
     } 
-	else if (Exp>=Lv4 && Exp<Lv5){
+	else if (Lv4 <= Exp&& Exp<Lv5){
 		Level= 4;
 	}
-	else if (Exp>=Lv5 && Exp<Lv6){
+	else if (Lv5 <= Exp&& Exp<Lv6){
 		Level= 5;
 	}
-	else if (Exp>=Lv6 && Exp<Lv7){
+	else if (Lv6 <= Exp&& Exp<Lv7){
 		Level= 6;
 	}
-	else if (Exp>=Lv7 && Exp<Lv8){
+	else if (Lv7 <= Exp&& Exp<Lv8){
 		Level= 7;
 	}
-	else if (Exp>=Lv8 && Exp<Lv9){
+	else if (Lv8 <= Exp&& Exp<Lv9){
 		Level= 8;
 	}
-	else if (Exp>=Lv9){
+	else if (Lv9 <= Exp){
 		Level= 9;
 	}
 

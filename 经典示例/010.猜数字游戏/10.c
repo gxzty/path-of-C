@@ -14,7 +14,7 @@ void main()
 	goal=rand()%(100-1+1)+1;//创建1-100间的随机数
 	printf("input how many times u can finger it out(10 is max times): \n");
 	scanf("%d",&count);
-	while (count >10 || count <1){
+	while (10 < count || count <1){
 		printf("only 1-10 times can be choiced,reinput:\n");
 	    scanf("%d",&count);
 	}
@@ -26,17 +26,17 @@ void main()
 	    while (Number - goal != 0 && count !=0){
 			d=(Number-goal)/10;
 //   		printf("%g\n",d);//显示差值的十分之一大小
-			if (d>0) printf("big\n");
-			if (d<0) printf("small\n");
+			if (0 < d) printf("big\n");
+			if (d < 0) printf("small\n");
             /*
-            if (d>0 && d<1) printf("very close , but still big, %d times left\n",count);
-		    else if (d>-1 && d<0) printf("very close , but still small, %d times left\n",count);
-		    else if (d<2 && d>=1) printf("a little big, %d times left\n",count);
-		    else if (d>-2 && d<=-1) printf("a little small, %d times left\n",count);
-		    else if (d<5 && d>=2) printf("big, %d times left\n",count);
-		    else if (d>-5 && d<=-2) printf("small, %d times left\n",count);
-		    else if (d<10 && d>=5) printf("too big, %d times left\n",count);
-		    else if (d>-10 && d<=-5) printf("too small, %d times left\n",count);
+            if (0 < d && d<1) printf("very close , but still big, %d times left\n",count);
+		    else if (-1 < d && d < 0) printf("very close , but still small, %d times left\n",count);
+		    else if (1 <= d && d < 2) printf("a little big, %d times left\n",count);
+		    else if (-2 < d && d <= -1) printf("a little small, %d times left\n",count);
+		    else if (2 <= d && d < 5) printf("big, %d times left\n",count);
+		    else if (-5 < d && d <= -2) printf("small, %d times left\n",count);
+		    else if (5 <= d && d < 10) printf("too big, %d times left\n",count);
+		    else if (-10 < d && d<=-5) printf("too small, %d times left\n",count);
 			//有bug，多次游戏后可能发现规律，例如目标是34
 			//当猜到44时提示a little big，猜43则会提示very close , but still small，则可以推出答案为34
 			*/

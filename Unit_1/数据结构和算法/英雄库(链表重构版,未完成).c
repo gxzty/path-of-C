@@ -35,7 +35,7 @@ hero *CreatHero(){
 char GetName(int NameNumber){
 	char Name;
     //输入错误的编号，则提示重新输入。
-    if (NameNumber <=0 || NameNumber >=3){
+    if (NameNumber <=0 || 3 <=  NameNumber){
     printf("Wrong NameNumber,please reinput (1-2):\n");
     scanf("%d",&NameNumber);
     GetName(NameNumber);

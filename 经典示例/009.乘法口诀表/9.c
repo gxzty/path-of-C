@@ -9,7 +9,7 @@ void main(void)
 	system("cls");
 	//使用for循环
 	printf("!!!!!!!乘法口诀表!!!!!!!\n\n");
-    for (i=9;i>=1;i--){
+    for (i=9;1 <= i;i--){
         for (j=1;j<=i;j++){
             printf("%d*%d=%d  ",i,j,i*j);
         }

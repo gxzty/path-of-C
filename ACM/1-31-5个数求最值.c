@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	for (i=0;i <=4 ;i++ ){
 	    scanf("%d",&a[i]);
 	}
-	t = a[0]>a[1]?a[0]:a[1];
+	t =a[1] < a[0] ? a[1] : a[0];
 	for (i=2;i<=4 ;i++ ){
         t = t>a[i]?t:a[i];
 	}

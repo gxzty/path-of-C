@@ -40,7 +40,7 @@ Status GetTop(SqStack S,SElemType *e){
 
 Status Push(SqStack S,SElemType e){
 	//插入元素e为新的栈顶元素
-	if (S.top - S.base >= S.stacksize ){
+	if (S.stacksize <= S.top - S.base){
     S.base = (SElemType *)realloc(S.base , 
 		                (S.stacksize+STACKINCREMENT)*sizeof(SElemType));
 	if (!S.base) exit (OVERFLOW);

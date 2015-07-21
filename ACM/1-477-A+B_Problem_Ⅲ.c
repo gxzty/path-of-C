@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 	    scanf("%lf%lf%lf",&a[i],&b[i],&c[i]);//这里也不是%f，要用%lf
     }
 	for (i=1;i<=n ;i++ ){
-		if (a[i]+b[i]-c[i] >-.0001 &&  a[i]+b[i]-c[i] < -.0001) printf("Yes\n");//精度！！！我也不知道为什么
+		if (-.0001 < a[i]+b[i]-c[i] &&  a[i]+b[i]-c[i] < -.0001) printf("Yes\n");//精度！！！我也不知道为什么
 		else printf("No\n");
 	}
 	return 0;

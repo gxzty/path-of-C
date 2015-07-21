@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 	}
 	printf("\n");
 	n=m;
-	for (;n>=1;n-- ){
+	for (;1<=n;n-- ){
 			for (i=1;i<=a[n] ;i++ ){
 	            if (i%2 != 0) printf("%d ",i);
 	        }
