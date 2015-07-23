@@ -14,7 +14,7 @@ int binary_search(int len, int num[], int request) {
     if (num[len -1] < request) left++;
     return left;//返回第几位
 }
-int main() {
+int main() { 
     int num[LENGTH] = {1, 3, 4, 5, 7, 8, 8, 9, 10, 13};
     printf("%d\n", binary_search(LENGTH, num, INSERT));
     return 0;
