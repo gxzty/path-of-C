@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void q_sort(int a[], int len){
+void q_sort(int *a, int len){
     int K = 0 , i = 0, j = len-1;//定义Key和哨兵i和j
 	int temp,n;
 		while (i != j){
