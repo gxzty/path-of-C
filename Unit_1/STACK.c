@@ -22,12 +22,12 @@ typedef struct {
 
 */
 
-Status InitStack(SqStack S){
+Status InitStack(SqStack *S){
     //构造一个空栈
-    S.base = (SElemType *)malloc(STACK_INIT_SIZE * sizeof(SElemType));
-	if ( !S.base ) exit (OVERFLOW);    //存储分配失败 返回-2
-	S.top = S.base;
-	S.stacksize = STACK_INIT_SIZE;
+    S->base = (SElemType *)malloc(STACK_INIT_SIZE * sizeof(SElemType));
+	if ( !S->base ) exit (OVERFLOW);    //存储分配失败 返回-2
+	S->top = S->base;
+	S->stacksize = STACK_INIT_SIZE;
 	return OK;
 }//InitStack
 
@@ -38,23 +38,23 @@ Status GetTop(SqStack S,SElemType *e){
 	return OK;
 }//GetTop
 
-Status Push(SqStack S,SElemType e){
+Status Push(SqStack *S,SElemType e){
 	//插入元素e为新的栈顶元素
-	if (S.stacksize <= S.top - S.base){
-    S.base = (SElemType *)realloc(S.base , 
-		                (S.stacksize+STACKINCREMENT)*sizeof(SElemType));
-	if (!S.base) exit (OVERFLOW);
-	S.top = S.base + S.stacksize;
-	S.stacksize += STACKINCREMENT;
+	if (S->stacksize <= S->top - S->base){
+    S->base = (SElemType *)realloc(S->base , 
+		                (S->stacksize+STACKINCREMENT)*sizeof(SElemType));
+	if (!S->base) exit (OVERFLOW);
+	S->top = S->base + S->stacksize;
+	S->stacksize += STACKINCREMENT;
 	}
-	*S.top++ =e;
+	*S->top++ =e;
 	return OK;
 }//Push
 
-Status Pop (SqStack S,SElemType *e){
+Status Pop (SqStack *S,SElemType *e){
     //若栈不空，则删除S的栈顶元素，用e返回其值，并返回OK；否则返回ERROR
-    if (S.top == S.base) return ERROR;
-	e =  --S.top;
+    if (S->top == S->base) return ERROR;
+	e =  --S->top;
 	return OK;
 }//Pop
 
@@ -81,7 +81,7 @@ Status StackTraverse(SqStack S,Status( * visit)());
 int main(int argc, char *argv[])
 {
 	int *e,i;
-	SqStack S;
+	SqStack *S;
 	InitStack(S);
 	Push(S,1);
     Pop(S,e);

@@ -1,6 +1,5 @@
 //冒泡排序
 #include <stdio.h>
-#include <stdio.h>
 
 int bubblesort(int *a, int n){
     int i,temp,sorted=-1;

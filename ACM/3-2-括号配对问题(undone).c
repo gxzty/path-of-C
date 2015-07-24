@@ -19,8 +19,19 @@ No
 No
 Yes
 */
-
 #include <stdio.h>
+#include <malloc.h>
+
+struct stack{
+	struct stack *top;
+	struct stack *btm;
+	int STACKSIZE;
+}stack;
+
+stack InitStack (){
+    
+
+}
 
 int main(int argc, char *argv[])
 {
