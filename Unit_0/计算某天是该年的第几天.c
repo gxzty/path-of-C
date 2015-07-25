@@ -4,11 +4,11 @@ int main()
     /* 定义需要计算的日期 */
     int year,month,day,n;
 	int m = 1,y;
-	printf("input date like year-month-day (input 0 to finish):\n");
-	while (scanf("%d-%d-%d",&year,&month,&day),year){
+	printf("input date like year-month-day (input 0-0-0 to finish):\n");
+	while (scanf("%d-%d-%d",&year,&month,&day),(year||month||day)){
 		y =((year%4 == 0 && year%100 != 0) || year%400 == 0);
 	    while ( day <= 0 || 31 < day || (month == 2 && 28+y < day) || ((month == 4 || month == 6 || month == 8 || month == 9 || month == 11 || month == 12 ) &&  30 < day)){
-    	    printf("\nWrong day ! \n\ninput date like year-month-day (input 0 to finish):\n");
+    	    printf("\nWrong day ! \n\ninput date like year-month-day (input 0-0-0 to finish):\n");
         	scanf("%d-%d-%d",&year,&month,&day);
 			y =((year%4 == 0 && year%100 != 0) || year%400 == 0);
 		}
@@ -30,7 +30,7 @@ int main()
 	    n+=day;
 	    if ( y && 2 < month ) n++;
 	    if ( m ) printf("%d\n\n",n);
-		printf("input date like year-month-day (input 0 to finish):\n");
+		printf("input date like year-month-day (input 0-0-0 to finish):\n");
 	}
 	return 0;
 }
