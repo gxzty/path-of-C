@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <malloc.h>
 #include "define.c"
 
@@ -22,32 +23,28 @@ typedef struct stack{
 	|        |base & top        |  A   |base                 |    A  |base   
 */
 
-Status InitStack(SqStack *S){
-	puts("1");
+SqStack InitStack(SqStack S){
     //构造一个空栈
-    if(!(S->base = (SElemType *)malloc(STACK_INIT_SIZE * sizeof(SElemType)))) exit (OVERFLOW);    //存储分配失败 返回-2
-    puts("2");
-	S->top = S->base;
-	S->stacksize = STACK_INIT_SIZE;
-	return OK;
+    if(!(S.base = (SElemType *)malloc(STACK_INIT_SIZE * sizeof(SElemType)))) exit (OVERFLOW);    //存储分配失败 返回-2
+	S.top = S.base;
+	S.stacksize = STACK_INIT_SIZE;
+	return S;
 }//InitStack
 
-Status DestoryStack(SqStack *S){
+Status DestroyStack(SqStack *S){
 	//若栈存在，销毁返回OK;否则返回ERROR
     if (S){
+		free(S->base);
 		free(S);
-		S->top = NULL;
-		S->base = NULL;
-        S->stacksize = 0;
 		return OK;
 	}
 	else return ERROR;
-}//DestoryStack
+}//DestroyStack
 
 Status GetTop(SqStack S,SElemType *e){
     //若栈不空，则用e返回S的栈顶元素，并返回OK；否则返回ERROR
     if (S.top == S.base) return FALSE;
-	*e = *(S.top - 1);
+    e = (S.top - 1);
 	return OK;
 }//GetTop
 
@@ -60,21 +57,22 @@ Status Push(SqStack *S,SElemType e){
 	S->top = S->base + S->stacksize;
 	S->stacksize += STACKINCREMENT;
 	}
-	*(S->top)++ = e;
+	*S->top++ = e;
 	return OK;
 }//Push
 
-Status Pop (SqStack *S,SElemType *e){
+Status Pop (SqStack S,SElemType *e){
     //若栈不空，则删除S的栈顶元素，用e返回其值，并返回OK；否则返回ERROR
-    if (S->top == S->base) return ERROR;
-	*e =  *--(S->top);
+    if (S.top == S.base); return ERROR;
+	e =  (S.top--);
 	return OK;
 }//Pop
 
 int main(){
     SqStack S;
 	SqStack *pS;
-	InitStack(pS);
-	S = *pS;
+	S = InitStack(S);
+    pS = &S;
+	printf("%d\n",S.stacksize);
     return 0;
 }
