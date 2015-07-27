@@ -92,8 +92,11 @@ void main(){
     s = InitStack(s);  
     for(i = 0 ; i < 20 ; i++){  
         int elem = rand()%100;  
-    Push(s,elem);  
-    }  
-    print(s);  
+        Push(s,elem);  
+    }
+	int *x;
+	Pop(s,x);
+	printf("%d\n",x);
+   // print(s);  
     FreeStack(s);  
 }  
