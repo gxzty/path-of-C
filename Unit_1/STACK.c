@@ -23,12 +23,14 @@ typedef struct stack{
 	|        |base & top        |  A   |base                 |    A  |base   
 */
 
-SqStack InitStack(SqStack S){
+SqStack InitStack(SqStack *S){
     //构造一个空栈
-    if(!(S.base = (SElemType *)malloc(STACK_INIT_SIZE * sizeof(SElemType)))) exit (OVERFLOW);    //存储分配失败 返回-2
-	S.top = S.base;
-	S.stacksize = STACK_INIT_SIZE;
-	return S;
+    if(!(S = (SqStack *)malloc(sizeof(SqStack)))) exit (OVERFLOW);    //存储分配失败 返回-2
+	S->base = (SElemType *)malloc(STACK_INIT_SIZE * sizeof(SElemType));
+	S->top = S->base;
+	S->stacksize = STACK_INIT_SIZE;
+    printf("InitStack successfully!\n");  
+	return *S;
 }//InitStack
 
 Status DestroyStack(SqStack *S){
@@ -58,21 +60,27 @@ Status Push(SqStack *S,SElemType e){
 	S->stacksize += STACKINCREMENT;
 	}
 	*S->top++ = e;
+	printf("e%d\n",e);
 	return OK;
 }//Push
 
-Status Pop (SqStack S,SElemType *e){
+Status Pop (SqStack *S,SElemType *e){
     //若栈不空，则删除S的栈顶元素，用e返回其值，并返回OK；否则返回ERROR
-    if (S.top == S.base); return ERROR;
-	e =  (S.top--);
+    if (S->top == S->base); return ERROR;
+	e =  (S->top--);
+	printf("e%d\n",e);
 	return OK;
 }//Pop
 
 int main(){
     SqStack S;
 	SqStack *pS;
-	S = InitStack(S);
+	S = InitStack(pS);
     pS = &S;
-	printf("%d\n",S.stacksize);
+	printf("%d\n",pS->stacksize);
+	Push(pS,3);
+	int *i;
+	Pop(pS,i);
+	printf("i%d\n",i);
     return 0;
 }
