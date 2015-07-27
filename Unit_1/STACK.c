@@ -81,6 +81,6 @@ int main(){
 	Push(pS,3);
 	int *i;
 	Pop(pS,i);
-	printf("i%d\n",i);
+	printf("%d\n",i);
     return 0;
 }
