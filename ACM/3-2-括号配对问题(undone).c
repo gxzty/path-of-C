@@ -22,91 +22,19 @@ Yes
 #include <stdio.h>
 #include <malloc.h>
 
-#define OK                     1
-#define ERROR               0
-#define OVERFLOW        -2
+struct stack{
+	struct stack *top;
+	struct stack *btm;
+	int STACKSIZE;
+}stack;
 
-#define STACK_INIT_SIZE 20  //存储空间初始分配量
-#define STACKINCREMENT 5   //存储空间分配增量
+stack InitStack (){
+    
 
-#define SElemType char
-
-typedef int Status;
-
-typedef struct stack{
-	SElemType *base;
-	SElemType *top;
-	int stacksize;
-}SqStack;
-
-SqStack InitStack(SqStack *S){
-    //构造一个空栈
-	S = (SqStack *)malloc(sizeof(SqStack));
-    if(!(S)) exit (OVERFLOW);    //存储分配失败 返回-2
-	S->base = (SElemType *)malloc(STACK_INIT_SIZE * sizeof(SElemType));
-	S->top = S->base;
-	S->stacksize = STACK_INIT_SIZE;
-	return *S;
-}
-
-Status Push(SqStack *S,SElemType e){
-	//插入元素e为新的栈顶元素
-	if (S->stacksize <= S->top - S->base){
-        S->base = (SElemType *)realloc(S->base , 
-		                (S->stacksize+STACKINCREMENT)*sizeof(SElemType));
-        if (!S->base) {
-	    	exit (OVERFLOW);
-    	}
-        S->top = S->base + S->stacksize;
-        S->stacksize += STACKINCREMENT;
-	}
-	*S->top = e;
-	S->top++;
-	return OK;
-}//Push
-
-Status Pop (SqStack *S,SElemType *e){
-    //若栈不空，则删除S的栈顶元素，用e返回其值，并返回OK；否则返回ERROR
-    if (EmptyStack(*S)){
-		return ERROR;
-	}
-	--S->top;
-	*e =  *S->top;
-	return OK;
-}//Pop
-
-Status EmptyStack(SqStack S){
-    if (S.top == S.base){
-		return OK;
-    }
-	else return FALSE;
 }
 
 int main(int argc, char *argv[])
 {
-	SqStack S;
-	S = InitStack(&S);
-	char ch[] = {0};
-	int i = 0;
-	char ch2 ;
-	while (~scanf("%c",&ch[i++])){
-        while (i--){
-		if (ch == '(' || ch == '['){
-			Push(&S,ch);
-		}
-		else if (ch == ')' ){
-			Pop(&S,&ch2);
-			if (ch2 != '('){
-				printf("No\n");
-			}
-		}
-		else if (ch == ']' ){
-			Pop(&S,&ch2);
-			if (ch2 != '['){
-				printf("No\n");
-			}
-		}
-        }
-	}
+	
 	return 0;
 }
