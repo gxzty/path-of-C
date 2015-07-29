@@ -51,6 +51,13 @@ SqStack InitStack(SqStack *S){
 	return *S;
 }
 
+Status EmptyStack(SqStack S){
+    if (S.top == S.base){
+		return OK;
+    }
+	else return FALSE;
+}
+
 Status Push(SqStack *S,SElemType e){
 	//插入元素e为新的栈顶元素
 	if (S->stacksize <= S->top - S->base){
@@ -84,12 +91,6 @@ Status Pop (SqStack *S,SElemType *e){
 	return OK;
 }//Pop
 
-Status EmptyStack(SqStack S){
-    if (S.top == S.base){
-		return OK;
-    }
-	else return FALSE;
-}
 
 
 int main(int argc, char *argv[])
