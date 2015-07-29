@@ -27,8 +27,19 @@ Sample Output
 
 int main(int argc, char *argv[])
 {
-	int h,d,apl,i;
-	scanf("%d%d%d",&h,&d,&apl);
-	int apl[apl];
+	int h,d,num,i = 0,j = 0;
+	scanf("%d%d%d",&h,&d,&num);
+	int apple[num];
+	while (i < num ){
+		scanf("%d",&apple[i]);
+		i++;
+	}
+	while (0 <= i){
+		if (apple[i] <= h + d){
+			j++;
+		}
+		i--;
+	}
+	printf("%d\n",j);
 	return 0;
 }

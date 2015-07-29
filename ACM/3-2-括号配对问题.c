@@ -25,6 +25,8 @@ Yes
 #define OK                     1
 #define ERROR               0
 #define OVERFLOW        -2
+#define TRUE                  1
+#define FALSE                0
 
 #define STACK_INIT_SIZE 20  //存储空间初始分配量
 #define STACKINCREMENT 5   //存储空间分配增量
@@ -65,6 +67,13 @@ Status Push(SqStack *S,SElemType e){
 	return OK;
 }//Push
 
+Status GetTop(SqStack S,SElemType *e){
+    //若栈不空，则用e返回S的栈顶元素，并返回OK；否则返回ERROR
+    if (EmptyStack(S)) return FALSE;
+    *e = *(S.top - 1);
+	return OK;
+}//GetTop
+
 Status Pop (SqStack *S,SElemType *e){
     //若栈不空，则删除S的栈顶元素，用e返回其值，并返回OK；否则返回ERROR
     if (EmptyStack(*S)){
@@ -82,31 +91,54 @@ Status EmptyStack(SqStack S){
 	else return FALSE;
 }
 
+
 int main(int argc, char *argv[])
 {
+	int len = 10000 , i = 0, flag = 1 ,num = 0;
+	char ch[10000] = {0},c;
 	SqStack S;
-	S = InitStack(&S);
-	char ch[] = {0};
-	int i = 0;
-	char ch2 ;
-	while (~scanf("%c",&ch[i++])){
-        while (i--){
-		if (ch == '(' || ch == '['){
-			Push(&S,ch);
-		}
-		else if (ch == ')' ){
-			Pop(&S,&ch2);
-			if (ch2 != '('){
-				printf("No\n");
+	scanf("%d",&num);
+	while (num--){
+		flag = 1;
+    	scanf("%s",&ch);
+		i = 0;
+	    S = InitStack(&S);
+		while (flag && i < len &&  (ch[i] == '[' || ch[i] == ']' || ch[i] == '(' || ch[i] == ')')){
+			if (ch[i] == '[' || ch[i] == '('){
+				Push(&S,ch[i]);
 			}
-		}
-		else if (ch == ']' ){
-			Pop(&S,&ch2);
-			if (ch2 != '['){
-				printf("No\n");
+			else if (ch[i] == ')' && !EmptyStack(S)){
+				GetTop(S,&c);
+				if ( c == '('){
+					Pop(&S,&c);
+				}
+				else {
+					flag = 0;
+				}
 			}
+			else if (ch[i] == ']' && !EmptyStack(S) ){
+				GetTop(S,&c);
+				if ( c == '['){
+					Pop(&S,&c);
+				}
+				else {
+					flag = 0;
+				}
+			}
+			else {
+				flag = 0;
+			}
+			i++;
 		}
-        }
+		if (flag == 1 && EmptyStack(S) &&  i < len ){
+			puts("Yes");
+		}
+		else if (!flag || !EmptyStack(S)){
+			puts("No");
+		}
+		else if (i >= len){
+			puts("Too long!\n");
+		}
 	}
 	return 0;
 }
