@@ -26,6 +26,12 @@ BiTree CreateBiTree(BiTree *T){
 	return *T;
 }
 
+Status DestroyBiTree(BiTree *T){
+    if (T->date = ' ') return OK;
+	else free(T);
+    return OK;
+}
+
 
 int main(int argc, char *argv[])
 {
