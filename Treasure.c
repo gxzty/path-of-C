@@ -10,3 +10,4 @@
 10.fopen()中的"w+",打开时将文件清空，所以无法读取内部数据。
 11.一个函数中传入指针如aaa(int *a){},在使用的时候不一定非要int *a; aaa(a)，还可以int a; aaa(&a); 类似scanf("%d",&a);
 12.if (i == 3)，有时候会错写成if (i = 3)，导致程序出BUG，所以可以将常数放在前边if (3 == i)，这样即使写成if (3 = i)，则编译器会提示(error: lvalue required as left operand of assignment)
+13.注意scanf(),getchar()和gets()的区别，主要在能否接收空格，是否从缓冲区删除末尾回车，以及他们的适用场景。
