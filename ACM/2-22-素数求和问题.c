@@ -31,8 +31,11 @@ int sushu (int a){
 	if (a <= 1){
 		flag = 0;
 	}
+	else if (a == 2){
+		flag = 1;
+	}
 	else {
-		for (j = 2;j < a ;j++ ){
+		for (j = 3;j < a ;j+=2 ){
 		    if (a == a/j*j){
 			    flag = 0 ;return 0; break;
 		    }
