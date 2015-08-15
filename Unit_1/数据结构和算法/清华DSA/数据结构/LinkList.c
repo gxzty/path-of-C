@@ -5,7 +5,7 @@
 #define LIST_INIT_SIZE 20  //存储空间初始分配量
 #define LISTINCREMENT 5   //存储空间分配增量
 
-#define ElemType int
+typedef int ElemType;
 
 typedef struct LinkList{
 	ElemType date;
