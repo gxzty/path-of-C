@@ -5,7 +5,7 @@
 #define LIST_INIT_SIZE 20
 #define LISTINCREMENT 5
 
-#define ElemType int
+typedef int ElemType;
 
 typedef struct SqList{
 	ElemType *elem;

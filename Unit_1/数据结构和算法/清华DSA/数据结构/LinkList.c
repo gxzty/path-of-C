@@ -9,33 +9,48 @@ typedef int ElemType;
 
 typedef struct LinkList{
 	ElemType date;
-    struct LinkList *head;//前一个指针
-	struct LinkList *tail;//后一个指针
+    struct LinkList *pre;//前一个指针
+	struct LinkList *next;//后一个指针
 }LinkList;
 
 LinkList InitList(LinkList *L);
 Status EmptyList(LinkList L); 
 
 LinkList InitList(LinkList *L){
+	//建立链表
 	L = (LinkList *)malloc(LIST_INIT_SIZE * sizeof(ElemType));
 	if (! L) exit(OVERFLOW);
-    L->head = L->tail =NULL;
+    L->pre = L->next =NULL;
 }
 
 Status DestroyList(LinkList *L){
-    L->tail = L->head;
+    L->next = L->pre;
 	free(L);
-
 }
 
 Status EmptyList(LinkList L){
-    if (L.tail == L.head) return OK;
+    if (L.next == L.pre) return OK;
 	else return FALSE;
 }
 
+int GetLength(LinkList L){
+    LinkList *p;
+	p = L.next;
+	int i ;
+    while (p){
+        i++;
+        p = L.next;
+    }
+	return i;
+}
+
+
+Status InsertList(LinkList *L , ElemType e){
+    LinkList *p;
+    
+}
 
 int main(int argc, char *argv[])
 {
-	
 	return 0;
 }

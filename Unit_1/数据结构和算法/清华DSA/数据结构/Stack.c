@@ -5,7 +5,7 @@
 #define STACK_INIT_SIZE 20  //存储空间初始分配量
 #define STACKINCREMENT 5   //存储空间分配增量
 
-#define SElemType int
+typedef int SElemType;
 
 
 //创建一个栈的数据类型
