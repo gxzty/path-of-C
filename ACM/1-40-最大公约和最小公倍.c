@@ -1,4 +1,14 @@
 #include <stdio.h>
+int gcd(int a, int b) {
+//辗转相除法
+    if (b == 0) {
+        return a;
+    } 
+	else {
+        return gcd(b, a % b);
+    }
+}
+
 
 int gongyue(int a , int b){
     int i = 1, c , j = 0 ,gy = 1;
@@ -30,7 +40,7 @@ int main(int argc, char *argv[])
 	scanf("%d",&n);
 	while (n--){
 		scanf("%d %d",&a,&b);
-		printf("%d %d\n",gongyue(a,b),gongbei(a,b));
+		printf("%d %d %d\n",gcd(a,b),gongyue(a,b),gongbei(a,b));
 	}
     return 0;
 }
