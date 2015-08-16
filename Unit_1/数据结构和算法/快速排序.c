@@ -1,10 +1,22 @@
 #include <stdio.h>
 
-void q_sort(int *a, int len){
-    int k = 0 , i = k+1, j = len-1;//定义key和哨兵i和j
-    
-}
 
+void qsort(int arr[],int l,int r){
+	int i=l,j=r,k=arr[(l+r)>>1];
+	while (i<j){
+		while (arr[i]<k)i++;
+		while (arr[j]>k)j--;
+		if (i<=j){
+			arr[i] = arr[i] + arr[j];
+			arr[j] = arr[i] - arr[j];
+			arr[i] = arr[i] - arr[j];
+			i++;
+			j--;
+		}
+	}
+	if (l<j)qsort(arr,l,j);
+	if (i<r)qsort(arr,i,r);
+}
 
 int main(int argc, char *argv[])
 {
@@ -15,7 +27,7 @@ int main(int argc, char *argv[])
 	    printf("%d|",a[n++]);	
 	}
 	putchar('\n');
-    q_sort(a,10);
+    qsort(a,0,10);
 	putchar('\n');
 	n = 0;
 	while (n < 10){
