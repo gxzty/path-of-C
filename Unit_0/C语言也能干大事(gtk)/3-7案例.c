@@ -10,11 +10,11 @@ int endsWith(char *str,char *substr)
         strlen++;
     }
 /*
-	for (int j=0;j<strlen;j++)
-	{
-		str--;
-	}
-	//通过最后几位字符对比
+    for (int j=0;j<strlen;j++)
+    {
+        str--;
+    }
+    //通过最后几位字符对比
 */
     int substrlen=0;
     while(*substr!='\0')
@@ -47,5 +47,5 @@ int endsWith(char *str,char *substr)
     printf("%d\n",endsWith("rupeng","eng"));
     printf("%d\n",endsWith("rupeng","ing"));
     printf("%d\n",endsWith("rupeng","afasfasdfaing"));
-	return 0;
+    return 0;
  }

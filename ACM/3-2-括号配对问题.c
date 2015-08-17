@@ -36,110 +36,110 @@ Yes
 typedef int Status;
 
 typedef struct stack{
-	SElemType *base;
-	SElemType *top;
-	int stacksize;
+    SElemType *base;
+    SElemType *top;
+    int stacksize;
 }SqStack;
 
 SqStack InitStack(SqStack *S){
     //构造一个空栈
-	S = (SqStack *)malloc(sizeof(SqStack));
+    S = (SqStack *)malloc(sizeof(SqStack));
     if(!(S)) exit (OVERFLOW);    //存储分配失败 返回-2
-	S->base = (SElemType *)malloc(STACK_INIT_SIZE * sizeof(SElemType));
-	S->top = S->base;
-	S->stacksize = STACK_INIT_SIZE;
-	return *S;
+    S->base = (SElemType *)malloc(STACK_INIT_SIZE * sizeof(SElemType));
+    S->top = S->base;
+    S->stacksize = STACK_INIT_SIZE;
+    return *S;
 }
 
 Status EmptyStack(SqStack S){
     if (S.top == S.base){
-		return OK;
+        return OK;
     }
-	else return FALSE;
+    else return FALSE;
 }
 
 Status Push(SqStack *S,SElemType e){
-	//插入元素e为新的栈顶元素
-	if (S->stacksize <= S->top - S->base){
+    //插入元素e为新的栈顶元素
+    if (S->stacksize <= S->top - S->base){
         S->base = (SElemType *)realloc(S->base , 
-		                (S->stacksize+STACKINCREMENT)*sizeof(SElemType));
+                        (S->stacksize+STACKINCREMENT)*sizeof(SElemType));
         if (!S->base) {
-	    	exit (OVERFLOW);
-    	}
+            exit (OVERFLOW);
+        }
         S->top = S->base + S->stacksize;
         S->stacksize += STACKINCREMENT;
-	}
-	*S->top = e;
-	S->top++;
-	return OK;
+    }
+    *S->top = e;
+    S->top++;
+    return OK;
 }//Push
 
 Status GetTop(SqStack S,SElemType *e){
     //若栈不空，则用e返回S的栈顶元素，并返回OK；否则返回ERROR
     if (EmptyStack(S)) return FALSE;
     *e = *(S.top - 1);
-	return OK;
+    return OK;
 }//GetTop
 
 Status Pop (SqStack *S,SElemType *e){
     //若栈不空，则删除S的栈顶元素，用e返回其值，并返回OK；否则返回ERROR
     if (EmptyStack(*S)){
-		return ERROR;
-	}
-	--S->top;
-	*e =  *S->top;
-	return OK;
+        return ERROR;
+    }
+    --S->top;
+    *e =  *S->top;
+    return OK;
 }//Pop
 
 
 
 int main(int argc, char *argv[])
 {
-	int len = 10000 , i = 0, flag = 1 ,num = 0;
-	char ch[10000] = {0},c;
-	SqStack S;
-	scanf("%d",&num);
-	while (num--){
-		flag = 1;
-    	scanf("%s",&ch);
-		i = 0;
-	    S = InitStack(&S);
-		while (flag && i < len &&  (ch[i] == '[' || ch[i] == ']' || ch[i] == '(' || ch[i] == ')')){
-			if (ch[i] == '[' || ch[i] == '('){
-				Push(&S,ch[i]);
-			}
-			else if (ch[i] == ')' && !EmptyStack(S)){
-				GetTop(S,&c);
-				if ( c == '('){
-					Pop(&S,&c);
-				}
-				else {
-					flag = 0;
-				}
-			}
-			else if (ch[i] == ']' && !EmptyStack(S) ){
-				GetTop(S,&c);
-				if ( c == '['){
-					Pop(&S,&c);
-				}
-				else {
-					flag = 0;
-				}
-			}
-			else {
-				flag = 0;
-			}
-			i++;
-		}
-		if (flag == 1 && EmptyStack(S) &&  i < len ){
-			puts("Yes");
-		}
-		else if (!flag || !EmptyStack(S)){
-			puts("No");
-		}
-		else if (i >= len){
-			puts("Too long!\n");
-		}
-	}
-	return 0;
+    int len = 10000 , i = 0, flag = 1 ,num = 0;
+    char ch[10000] = {0},c;
+    SqStack S;
+    scanf("%d",&num);
+    while (num--){
+        flag = 1;
+        scanf("%s",&ch);
+        i = 0;
+        S = InitStack(&S);
+        while (flag && i < len &&  (ch[i] == '[' || ch[i] == ']' || ch[i] == '(' || ch[i] == ')')){
+            if (ch[i] == '[' || ch[i] == '('){
+                Push(&S,ch[i]);
+            }
+            else if (ch[i] == ')' && !EmptyStack(S)){
+                GetTop(S,&c);
+                if ( c == '('){
+                    Pop(&S,&c);
+                }
+                else {
+                    flag = 0;
+                }
+            }
+            else if (ch[i] == ']' && !EmptyStack(S) ){
+                GetTop(S,&c);
+                if ( c == '['){
+                    Pop(&S,&c);
+                }
+                else {
+                    flag = 0;
+                }
+            }
+            else {
+                flag = 0;
+            }
+            i++;
+        }
+        if (flag == 1 && EmptyStack(S) &&  i < len ){
+            puts("Yes");
+        }
+        else if (!flag || !EmptyStack(S)){
+            puts("No");
+        }
+        else if (i >= len){
+            puts("Too long!\n");
+        }
+    }
+    return 0;
 }

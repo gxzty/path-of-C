@@ -27,31 +27,31 @@ x1,x2,x3,x4,x5都就在区间[-50,50]之间的整数，且x1,x2,x3,x4,x5都不�
 
 int main(int argc, char *argv[])
 {
-	int x1,x2,x3,x4,x5;
-	int count=0,i;
-	int a1,a2,a3,a4,a5;
-	scanf("%d%d%d%d%d",&a1,&a2,&a3,&a4,&a5);
-	for (x1=-50;x1<=50 ;x1++ ){
-		if (x1==0) continue;
-		for (x2=-50;x2<=50 ;x2++ ){
-			if (x2==0) continue;
-	        for (x3=-50;x3<=50 ;x3++ ){
-				if (x3==0) continue;
-				for (x4=-50;x4<=50 ;x4++ ){
-					if (x4==0) continue;
-			        for (x5=-50;x5<=50 ;x5++ ){
-						if (x5==0) continue;
-						i=a1*x1*x1*x1+a2*x2*x2*x2+a3*x3*x3*x3+a4*x4*x4*x4+a5*x5*x5*x5;
-						if (i==0){
-							count++;
-						}
-			        }
-	            }
-			}
-	    }
-	}
-	printf("%d\n",count);
-	return 0;
+    int x1,x2,x3,x4,x5;
+    int count=0,i;
+    int a1,a2,a3,a4,a5;
+    scanf("%d%d%d%d%d",&a1,&a2,&a3,&a4,&a5);
+    for (x1=-50;x1<=50 ;x1++ ){
+        if (x1==0) continue;
+        for (x2=-50;x2<=50 ;x2++ ){
+            if (x2==0) continue;
+            for (x3=-50;x3<=50 ;x3++ ){
+                if (x3==0) continue;
+                for (x4=-50;x4<=50 ;x4++ ){
+                    if (x4==0) continue;
+                    for (x5=-50;x5<=50 ;x5++ ){
+                        if (x5==0) continue;
+                        i=a1*x1*x1*x1+a2*x2*x2*x2+a3*x3*x3*x3+a4*x4*x4*x4+a5*x5*x5*x5;
+                        if (i==0){
+                            count++;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    printf("%d\n",count);
+    return 0;
 }
 */
 //hash
@@ -80,7 +80,7 @@ int main()
         }  
         int cnt = 0;  
         for(x3 = -50; x3<=50; x3++) {  
-			if(!x3)  
+            if(!x3)  
                 continue;  
             for(x4 = -50; x4<=50; x4++) {  
                 if(!x4)  

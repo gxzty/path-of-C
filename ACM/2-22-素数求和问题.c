@@ -27,43 +27,43 @@
 #include <stdio.h>
 
 int sushu (int a){
-	int j , flag = 1;
-	if (a <= 1){
-		flag = 0;
-	}
-	else if (a == 2){
-		flag = 1;
-	}
-	else {
-		for (j = 3;j < a ;j+=2 ){
-		    if (a == a/j*j){
-			    flag = 0 ;return 0; break;
-		    }
-	    }
-	}
-	if (flag){
-		return a;
-	}
-	else return 0;
+    int j , flag = 1;
+    if (a <= 1){
+        flag = 0;
+    }
+    else if (a == 2){
+        flag = 1;
+    }
+    else {
+        for (j = 3;j < a ;j+=2 ){
+            if (a == a/j*j){
+                flag = 0 ;return 0; break;
+            }
+        }
+    }
+    if (flag){
+        return a;
+    }
+    else return 0;
 }
 
 
 int main()
 {
-	int n , count, i,b,sum;
-	scanf("%d",&n);
-	while (n--){
-		scanf("%d",&count);
-	    i = 0;
-		sum = 0;
-	    int num[1000] = {0};
-		while (i < count){
+    int n , count, i,b,sum;
+    scanf("%d",&n);
+    while (n--){
+        scanf("%d",&count);
+        i = 0;
+        sum = 0;
+        int num[1000] = {0};
+        while (i < count){
             scanf("%d",&num[i]);
             b = sushu(num[i]);
-			sum += b;
-			i++;
-		}
-		printf("%d\n",sum);
-	}
-	return 0;    
+            sum += b;
+            i++;
+        }
+        printf("%d\n",sum);
+    }
+    return 0;    
 }

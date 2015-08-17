@@ -9,7 +9,7 @@ int binary_search(int len, int num[], int request) {
     while (left < right) {
         mid = (left+right)/2; 
         if (request <= num[mid]) right = mid; //如果插入数小于中间数，则将right边界设置为mid
-		else left = mid+1 ; //否则说明中间数仍小于插入数，则将left边界设置为mid+1
+        else left = mid+1 ; //否则说明中间数仍小于插入数，则将left边界设置为mid+1
     }
     if (num[len -1] < request) left++;
     return left;//返回第几位

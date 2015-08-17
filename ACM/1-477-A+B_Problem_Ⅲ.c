@@ -23,17 +23,17 @@ No
 
 int main(int argc, char *argv[])
 {
-	int n,i;
-	scanf("%d",&n);
-	double a[n],b[n],c[n];//不能用float必须用double
+    int n,i;
+    scanf("%d",&n);
+    double a[n],b[n],c[n];//不能用float必须用double
     for (i=1;i<=n ;i++ ){
-	    scanf("%lf%lf%lf",&a[i],&b[i],&c[i]);//这里也不是%f，要用%lf
+        scanf("%lf%lf%lf",&a[i],&b[i],&c[i]);//这里也不是%f，要用%lf
     }
-	for (i=1;i<=n ;i++ ){
-		if (-.0001 < a[i]+b[i]-c[i] &&  a[i]+b[i]-c[i] < -.0001) printf("Yes\n");//精度！！！我也不知道为什么
-		else printf("No\n");
-	}
-	return 0;
+    for (i=1;i<=n ;i++ ){
+        if (-.0001 < a[i]+b[i]-c[i] &&  a[i]+b[i]-c[i] < -.0001) printf("Yes\n");//精度！！！我也不知道为什么
+        else printf("No\n");
+    }
+    return 0;
 }
 /*
 #include <cstdio>

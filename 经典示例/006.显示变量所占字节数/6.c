@@ -7,7 +7,7 @@ void main()
     /*int型在不同的机器，不同的编译器中的字节数不一样,*/
     /*一般来说在TC2.0编译器中字节数为2,在VC编译器中字节数为4 */
     printf("The bytes of the variables are:\n");
-	/* int型的字节数为4*/
+    /* int型的字节数为4*/
     printf("int:%d bytes\n",sizeof(int));
     /* char型的字节数为1 */
     printf("char:%d byte\n",sizeof(char));

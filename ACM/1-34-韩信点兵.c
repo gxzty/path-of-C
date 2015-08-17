@@ -13,15 +13,15 @@
 
 int main(int argc, char *argv[])
 {
-	int a,b,c,i,flag = 0;
-	scanf("%d%d%d",&a,&b,&c);
-	for (i  = 10;i <= 100 ;i++ ){
-		if (i % 3 == a && i % 5 == b && i % 7 == c){
-			printf("%d\n",i); flag = 1; break;
-		}
-	}
-    if (!flag){
-		puts("No answer");
+    int a,b,c,i,flag = 0;
+    scanf("%d%d%d",&a,&b,&c);
+    for (i  = 10;i <= 100 ;i++ ){
+        if (i % 3 == a && i % 5 == b && i % 7 == c){
+            printf("%d\n",i); flag = 1; break;
+        }
     }
-	return 0;
+    if (!flag){
+        puts("No answer");
+    }
+    return 0;
 }

@@ -3,10 +3,10 @@
 
 int main()
 {
-	float x,y,c;				/* 变量定义 */
-	printf("Please input x and y:\n");	/* 提示用户输入数据 */
-	scanf("%f%f",&x,&y);
-	c=y<x?y:x;				/* 计算c=max(x,y) */
-	printf("MAX of (%f,%f) is %f",x,y,c);	/* 输出c */
+    float x,y,c;                /* 变量定义 */
+    printf("Please input x and y:\n");    /* 提示用户输入数据 */
+    scanf("%f%f",&x,&y);
+    c=y<x?y:x;                /* 计算c=max(x,y) */
+    printf("MAX of (%f,%f) is %f",x,y,c);    /* 输出c */
     return 0;
 }

@@ -23,26 +23,26 @@
 
 int main(int argc, char *argv[])
 {
-	int n,m,i;
-	scanf("%d",&n);
-	m=n;
-	int a[n],b[n];
-	while ( n != 0 ){
-		scanf("%d",&a[n]);
-		n--;
-	}
-	printf("\n");
-	n=m;
-	for (;1<=n;n-- ){
-			for (i=1;i<=a[n] ;i++ ){
-	            if (i%2 != 0) printf("%d ",i);
-	        }
-	        printf("\n");
-	        for (i=2;i<=a[n] ;i++ ){
-	            if (i%2 == 0) printf("%d ",i);
-	        }
-			printf("\n\n");
-	}
+    int n,m,i;
+    scanf("%d",&n);
+    m=n;
+    int a[n],b[n];
+    while ( n != 0 ){
+        scanf("%d",&a[n]);
+        n--;
+    }
+    printf("\n");
+    n=m;
+    for (;1<=n;n-- ){
+            for (i=1;i<=a[n] ;i++ ){
+                if (i%2 != 0) printf("%d ",i);
+            }
+            printf("\n");
+            for (i=2;i<=a[n] ;i++ ){
+                if (i%2 == 0) printf("%d ",i);
+            }
+            printf("\n\n");
+    }
 
-	return 0;
+    return 0;
 }

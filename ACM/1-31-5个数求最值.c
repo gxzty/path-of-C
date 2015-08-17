@@ -19,19 +19,19 @@
 
 int main(int argc, char *argv[])
 {
-	int a[5] = {0};
-	int i,t,k;
-	for (i=0;i <=4 ;i++ ){
-	    scanf("%d",&a[i]);
-	}
-	t =a[1] < a[0] ? a[1] : a[0];
-	for (i=2;i<=4 ;i++ ){
+    int a[5] = {0};
+    int i,t,k;
+    for (i=0;i <=4 ;i++ ){
+        scanf("%d",&a[i]);
+    }
+    t =a[1] < a[0] ? a[1] : a[0];
+    for (i=2;i<=4 ;i++ ){
         t = t>a[i]?t:a[i];
-	}
-	k = a[0]<a[1]?a[0]:a[1];
-	for (i=2;i<=4 ;i++ ){
-		k = k<a[i]?k:a[i];
-	}
-	printf("%d %d\n",k,t);
-	return 0;
+    }
+    k = a[0]<a[1]?a[0]:a[1];
+    for (i=2;i<=4 ;i++ ){
+        k = k<a[i]?k:a[i];
+    }
+    printf("%d %d\n",k,t);
+    return 0;
 }

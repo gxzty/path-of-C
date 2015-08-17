@@ -17,24 +17,24 @@ a d s
 
 int main(int argc, char *argv[])
 {
-	char ch[3] = {0},temp;
-	int i = 0,n,flag;
-	scanf("%d",&n);
-	while (n--){
-		scanf("%s",&ch);
+    char ch[3] = {0},temp;
+    int i = 0,n,flag;
+    scanf("%d",&n);
+    while (n--){
+        scanf("%s",&ch);
         flag = 1;
-		while (flag){
-			flag = 0;
-			i = 0;
-			while (i < 2){
-				if (ch[i+1] < ch[i] ){
-					temp = ch[i+1]; ch[i+1] = ch[i]; ch[i] = temp; 
-					flag = 1;
-				}
-				i++;
-			}
-		}
-		printf("%c %c %c\n",ch[0],ch[1],ch[2]);
-	}
-	return 0;
+        while (flag){
+            flag = 0;
+            i = 0;
+            while (i < 2){
+                if (ch[i+1] < ch[i] ){
+                    temp = ch[i+1]; ch[i+1] = ch[i]; ch[i] = temp; 
+                    flag = 1;
+                }
+                i++;
+            }
+        }
+        printf("%c %c %c\n",ch[0],ch[1],ch[2]);
+    }
+    return 0;
 }
