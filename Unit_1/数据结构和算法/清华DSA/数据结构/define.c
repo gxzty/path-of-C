@@ -5,3 +5,11 @@
 #define INFEASIBLE     -1
 #define OVERFLOW        -2
 typedef int Status;
+
+void pri(int num){
+    printf("%d\n",num);
+}
+
+void sca(int *a){
+    scanf("%d",a);
+}
