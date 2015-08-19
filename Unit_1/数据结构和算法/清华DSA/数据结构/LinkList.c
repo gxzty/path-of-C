@@ -2,69 +2,100 @@
 #include <malloc.h>
 #include "define.c"
 
-#define LIST_INIT_SIZE 20  //存储空间初始分配量
-#define LISTINCREMENT 5   //存储空间分配增量
-
 typedef int ElemType;
 
-typedef struct LinkList{
-    ElemType date;
-    struct LinkList *pre;//前一个指针
-    struct LinkList *next;//后一个指针
-}LinkList;
+typedef struct LNode{
+    ElemType data;
+    struct LNode *prior;//前一个指针
+    struct LNode *next;//后一个指针
+}LNode,*LinkList;
 
-LinkList InitList(LinkList *L);
-Status EmptyList(LinkList L); 
 
-LinkList InitList(LinkList *L){
+void InitList(LinkList *L){
     //建立链表
-    L = (LinkList *)malloc(LIST_INIT_SIZE * sizeof(ElemType));
+    *L = (LinkList)malloc(sizeof(LNode));
     if (! L) exit(OVERFLOW);
-    L->pre = L->next =NULL;
+    (*L)->prior = NULL;
+    (*L)->next =NULL; 
+    printf("init success\n");
 }
 
 Status DestroyList(LinkList *L){
-    L->next = L->pre;
-    free(L);
+    LinkList p,q = *L;
+    while (p){
+        q = p->next;
+        free(p);
+        p = q;
+    }
 }
 
 Status EmptyList(LinkList L){
-    if (L.next == L.pre) return OK;
+    if (L->next == L->prior) return OK;
     else return FALSE;
 }
 
 int GetLength(LinkList L){
-    LinkList *p;
-    p = L.next;
-    int i ;
-    while (p){
+    int i = 0 ;
+    while (L->next){
         i++;
-        p = L.next;
+        L = L->next;
     }
     return i;
 }
 
+Status Push(LinkList L, ElemType e){
+    LinkList s = L;
+    
+}
 
-Status InsertList(LinkList *L , int i ,ElemType e){
-    LinkList *n;
-    n = (LinkList *)malloc(sizeof(LinkList));
-    if (i = -1){
-        while (L->next != NULL){
-            L = L->next;
-        }
-        L->next = n;
-        n->next = NULL;
+
+Status InsertList(LinkList L , int i , ElemType e){
+    LinkList s,p = L->next;
+    int j  = 0;
+    while (p && j < i - 1){
+        p = p->next;
+        j++;
     }
-    else if(0 == i){
-        
-        n->next = L;
+    if (!p || j > i - 1){
+        pri(FALSE);
+        return FALSE;
     }
-    
-    
+    s = (LinkList)malloc(sizeof(LNode));
+    s->data = e;
+    s->next = p->next;
+    p->next = s;
+    return TRUE;
+}
+
+Status InsertElem(LinkList L, int i, ElemType e){
+    return OK;
+}
+
+
+void visit(ElemType e){
+    printf("%d ", e);
+}
+
+void TraverseList(LinkList L, void (*visit)(ElemType)){
+    L = L->next;
+    while (L){
+        visit(L->data);
+        L = L->next;
     }
 }
 
+
+
 int main(int argc, char *argv[])
 {
+    LinkList L;
+    InitList(&L);
+    int i ;
+    for (i = 0;i< 9 ;i++ ){
+        InsertElem(L,i+1,i);
+    }
+    pri(GetLength(L));
+    pri(EmptyList(L));
+    TraverseList(L,visit);
     return 0;
 }
