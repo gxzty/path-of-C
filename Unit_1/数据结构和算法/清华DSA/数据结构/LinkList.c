@@ -6,22 +6,21 @@ typedef int ElemType;
 
 typedef struct LNode{
     ElemType data;
-    struct LNode *prior;//前一个指针
     struct LNode *next;//后一个指针
 }LNode,*LinkList;
 
 
-void InitList(LinkList *L){
-    //建立链表
-    *L = (LinkList)malloc(sizeof(LNode));
-    if (! L) exit(OVERFLOW);
-    (*L)->prior = NULL;
-    (*L)->next =NULL; 
+LinkList InitList(LinkList L){
+    //建立链表，因为C中没有引用&，所以返回L供外界使用
+    L = (LinkList)malloc(sizeof(LNode));
+    if ( !L ) exit(OVERFLOW);
+    L->next = NULL; 
     printf("init success\n");
+    return L;
 }
 
-Status DestroyList(LinkList *L){
-    LinkList p,q = *L;
+Status DestroyList(LinkList L){
+    LinkList p,q = L;
     while (p){
         q = p->next;
         free(p);
@@ -29,24 +28,21 @@ Status DestroyList(LinkList *L){
     }
 }
 
-Status EmptyList(LinkList L){
-    if (L->next == L->prior) return OK;
+Status EmptyList(const LinkList L){
+    if (L->next ==NULL) return OK;
     else return FALSE;
 }
 
 int GetLength(LinkList L){
     int i = 0 ;
-    while (L->next){
+    L = L->next;//指向第一个节点
+    while (L){//如果该节点不为空
         i++;
         L = L->next;
     }
     return i;
 }
 
-Status Push(LinkList L, ElemType e){
-    LinkList s = L;
-    
-}
 
 
 Status InsertList(LinkList L , int i , ElemType e){
@@ -89,7 +85,7 @@ void TraverseList(LinkList L, void (*visit)(ElemType)){
 int main(int argc, char *argv[])
 {
     LinkList L;
-    InitList(&L);
+    L = InitList(L);
     int i ;
     for (i = 0;i< 9 ;i++ ){
         InsertElem(L,i+1,i);
