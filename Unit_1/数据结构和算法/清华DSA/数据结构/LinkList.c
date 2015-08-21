@@ -45,7 +45,7 @@ int GetLength(LinkList L){
 
 
 
-Status InsertList(LinkList L , int i , ElemType e){
+Status InsertElem(LinkList L , int i , ElemType e){
     LinkList s,p = L->next;
     int j  = 0;
     while (p && j < i - 1){
@@ -58,14 +58,13 @@ Status InsertList(LinkList L , int i , ElemType e){
     }
     s = (LinkList)malloc(sizeof(LNode));
     s->data = e;
+    printf("Insert %d|",e);
     s->next = p->next;
     p->next = s;
     return TRUE;
 }
 
-Status InsertElem(LinkList L, int i, ElemType e){
-    return OK;
-}
+
 
 
 void visit(ElemType e){
@@ -87,7 +86,7 @@ int main(int argc, char *argv[])
     LinkList L;
     L = InitList(L);
     int i ;
-    for (i = 0;i< 9 ;i++ ){
+    for (i = 0;i< 3 ;i++ ){
         InsertElem(L,i+1,i);
     }
     pri(GetLength(L));
