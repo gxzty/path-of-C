@@ -1,6 +1,11 @@
 #include <stdio.h>
 int gcd(int a, int b) {
 //辗转相除法
+    if (a < b){
+        a = a ^ b;
+        b = a ^ b;
+        a = a ^ b;
+    }
     if (b == 0) {
         return a;
     } 
@@ -21,6 +26,10 @@ int gongyue(int a , int b){
     }
     return gy;
 }
+
+
+//最小公倍数等于两个数的乘机除以他们的最大公约数
+int gbd
 
 int gongbei(int a , int b){
     int i , j ,c;
