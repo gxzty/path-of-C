@@ -7,14 +7,16 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 #include <stdio.h>
 
 int singleNumber(int* nums, int numsSize) {
-    int single;
-    int i=0 , j=0;
-    return single;
+    int result = 0 , i = 0;
+    for (i = 0; i < numsSize ; i++ ){
+        result ^= nums[i];
+    }
+    return result;
 }
 
 int main(int argc, char *argv[])
 {
-    int a[7] = {0,1,0,2,4,2,4};
-    printf("%d\n",singleNumber(a,7));
+    int a[21] = {17,12,5,-6,12,4,17,-5,2,-3,2,4,5,9,-3,-4,15,15,-4,-5,-6};
+    printf("%d\n",singleNumber(a,21));
     return 0;
 }
