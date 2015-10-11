@@ -7,7 +7,7 @@
 typedef int Status;
 
 void pri(int num){
-    printf("%d\n",num);
+        printf("%d\n",num);
 }
 
 void sca(int *a){

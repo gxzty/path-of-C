@@ -4,9 +4,12 @@ Given an array of integers, every element appears twice except for one. Find tha
 Note:
 Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
 */
+
+//只有一个数出现一次，其他都是两次，找到这个数
 #include <stdio.h>
 
 int singleNumber(int* nums, int numsSize) {
+    //异或位运算，复杂度O(n)
     int result = 0 , i = 0;
     for (i = 0; i < numsSize ; i++ ){
         result ^= nums[i];

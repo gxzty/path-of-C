@@ -22,3 +22,5 @@
 15.ElemType a[n]中，其实n就是偏移量。代表指针向后移动n个sizeof(ElemType)。
 16.函数中传入函数如先声明void visit (Elemtype e){ ... } 需要使用visit()函数时，void TraverseList(SqList L , void (*visit)(ElemType)){ ... }
 17.typedef struct LNode{...} LNode,*LinkList;这样每当需要链表时LinkList L，当LNode时LNode s;
+18.LinkList q ,p = L;其中只有p被赋值L，q则只是声明，没有具体赋值。
+19.运算符>>和<<优先级低于+,-,弄不清楚就用好括号。

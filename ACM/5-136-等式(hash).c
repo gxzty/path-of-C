@@ -21,7 +21,6 @@ x1,x2,x3,x4,x5都就在区间[-50,50]之间的整数，且x1,x2,x3,x4,x5都不�
 654
 */
 
-/*
 //暴力穷举法
 #include <stdio.h>
 
@@ -53,8 +52,8 @@ int main(int argc, char *argv[])
     printf("%d\n",count);
     return 0;
 }
-*/
 //hash
+/*
 #include <stdio.h>  
 #include <string.h>  
   
@@ -100,3 +99,4 @@ int main()
   
     return 0;  
 }  
+*/

@@ -193,8 +193,10 @@ Status InsertElem(LinkList L, int i, ElemType e)
         j++;
         p = p->next;
     }
+    printf("[%d] \n", i);
     if (!p || j > i - 1)
     {
+        puts("2");
         return ERROR;
     }
     s = (LinkList) malloc(sizeof(LNode));
