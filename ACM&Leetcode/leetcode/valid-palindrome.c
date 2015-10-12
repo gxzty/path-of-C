@@ -3,35 +3,59 @@
 #define false 0
 typedef int bool;
 
-bool isPalindrome(char string[], int len) {
+bool isPalindrome(char s[], int len) {
     // Write your code here
     int left = 0;
     int right = len - 1;
-    while (left < right) {
-        //字母情况
-        if ((string[left] <= 'Z' && string[left] >= 'A') || (string[left] <= 'z' && string[left] >= 'a')) {
-            //如果左边是字母
-            while (string[right] == ' ') {
-                //如果右边是空格
+    while (left < right) {  // 左边小于右边，未查完
+        while (!((s[left] <= 'z' && s[left] >= 'a') || (s[left] <= 'Z' && s[left] >= 'A') || (s[left] <= '9' && s[left] >= '0'))) {  // 如果左不为字母和数字则left++;
+            left++;
+            if (left >= right) {
+                return true;
+            }
+        }
+        if (s[left] <= 'Z' && s[left] >= 'A') {  // 如果左为大写
+            while (!((s[right] <= 'z' && s[right] >= 'a') || (s[right] <= 'Z' && s[right] >= 'A') || (s[right] <= '9' && s[right] >= '0'))) {  // 如果右不为字母和数字则right--;
                 right--;
-                }
-                //如果左边减右边不等0,22,-22(ASCII码)
-                if ((string[left] - string[right] != 0) || (string[left] - string[right] != 22) || (string[left] - string[right] != -22)){
-                    
+                if (left >= right) {
+                    return true;
                 }
             }
-            right--;
-        } else { //数字情况
-            if (string[left] <= '9' && string[left] >= '0') {
-                while (string[right] >= '9' || string[right] <= '0') {
-                    right--;
-                }
-                if (string[left] != string[right]){
-                        return false;
-                }
+            if (!((s[left] - s[right] != 0) || (s[left] - s[right] != -32))) {
+                return false;
             }
             left++;
             right--;
+            continue;
+        } else {  // 如果左为小写或者数字
+            if (s[left] <= 'z' && s[left] >= 'a') {  // 如果左为小写
+                while (!((s[right] <= 'z' && s[right] >= 'a') || (s[right] <= 'Z' && s[right] >= 'A') || (s[right] <= '9' && s[right] >= '0'))) {  // 如果右不为字母和数字则right--;
+                    right--;
+                    if (left >= right) {
+                        return true;
+                    }
+                }
+                if ((s[left] - s[right] != 0) && (s[left] - s[right] != 32)) {
+                    return false;
+                }
+                left++;
+                right--;
+                continue;
+            } else {   // 数字情况
+                if (s[left] <= '9' && s[left] >= '0') {
+                    while (!((s[right] <= 'z' && s[right] >= 'a') || (s[right] <= 'Z' && s[right] >= 'A') || (s[right] <= '9' && s[right] >= '0'))) {  // 如果右不为字母和数字则right--;
+                        right--;
+                        if (left >= right) {
+                            return true;
+                        }
+                    }
+                    if (s[left] != s[right]) {
+                            return false;
+                    }
+                }
+                left++;
+                right--;
+            }
         }
     }
     return true;
@@ -39,7 +63,7 @@ bool isPalindrome(char string[], int len) {
 
 int main(int argc, char *argv[])
 {
-    char s[99] = "abcdcba";
-    printf("%d\n",isPalindrome(s,7));
+    char s[99] = "A mana plana canal: Panama";
+    printf("%d\n",isPalindrome(s,28));
     return 0;
 }
