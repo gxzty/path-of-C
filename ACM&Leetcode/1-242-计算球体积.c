@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     double r,s1;
     int s2;
     while (~scanf("%lf",&r)){
-//        s1 =4/3.0*PI*r*r*r;//从左到右算，如果是4/3，则两个都是整数在算，结果会被强制转换为1
+    // s1 =4/3.0*PI*r*r*r;//从左到右算，如果是4/3，则两个都是整数在算，结果会被强制转换为1
         s1 = 4/3.0*3.1415926*r*r*r;
         s2 = (int)(s1+0.5);
         printf("%d\n\n",s2);
