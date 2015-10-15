@@ -11,7 +11,7 @@ int main() {
         scanf("%d",&days);
         if (days < 28 || days > 31) {
             printf("Wrong Number!\n");
-            fflush(stdin);
+            while((days = getchar()) != '\n' && days != EOF);  
             days = 0;
             continue;
         }
@@ -23,7 +23,7 @@ int main() {
         scanf("%d",&firstDay);
         if (firstDay < 1 || firstDay > 7) {
             printf("Wrong Number!\n");
-            fflush(stdin);
+            while((firstDay = getchar()) != '\n' && firstDay != EOF);  
             firstDay = 0;
             continue;
         }
@@ -35,7 +35,7 @@ int main() {
         scanf("%d",&weekFirst);
             if (!(weekFirst == 1 || weekFirst == 7)) {
             printf("Wrong Number!\n");
-            fflush(stdin);
+            while((weekFirst = getchar()) != '\n' && weekFirst != EOF);  
             weekFirst = 0;
             continue;
         }
