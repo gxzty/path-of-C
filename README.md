@@ -5,4 +5,5 @@ C语言学习之路
 这里超过99%的代码均为自己亲手所码。
 
 [这里还有一个非常非常简单的数字小游戏](https://github.com/gxzty/GuessScrews)
+
 [我的简历](https://github.com/gxzty/GuessScrews),2016年毕业，希望找一个游戏策划或者程序员的职位]
